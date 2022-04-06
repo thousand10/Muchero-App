@@ -1,0 +1,20 @@
+@model mucheroapp.Models.Fruit;
+
+@{
+    ViewData["title"] = "Admin-fruit-detail";
+}
+
+<div class="bg-gray-100">
+    <div class="container mx-auto max-w-4xl py-28 px-8">
+        <h1 class="font-serif text-3xl md:text-4xl text-center  pb-8">Delete this fruit</h1>
+        <div class="max-w-2xl mx-auto">
+            <div class="flex justify-center gap-4">
+              <form asp-controller="Admin" asp-action="DeleteData" method="post">
+                <input asp-for="Id" class="hidden"/>
+                <button type="submit" class="font-sans text-xl bg-red-600 text-center py-2 md:py-3 px-8 text-white transition ease-in-out duration-200 hover:bg-red-500">Confirm</button>
+              </form>
+              <a asp-controller="Admin" asp-action="Dashboard" class="font-sans text-xl bg-green-600 text-center py-2 md:py-3 px-8 text-white transition ease-in-out duration-200 hover:bg-green-500">Cancel</a>
+            </div>
+        </div>
+    </div>
+</div>

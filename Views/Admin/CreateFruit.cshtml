@@ -1,0 +1,70 @@
+@model mucheroapp.Models.Fruit;
+
+@{
+    ViewData["title"] = "Create-a-Fruit";
+}
+
+<div class="bg-white">
+    <div class="container mx-auto max-w-4xl py-28 px-8">
+        <h1 class="font-serif text-3xl md:text-4xl text-center  pb-8">Add a Fruit</h1>
+        <div class="max-w-2xl mx-auto">
+             <div class="pb-9">
+                 <a asp-controller="Admin" asp-action="Dashboard" class="text-xl text-white bg-green-600 py-1 cursor-pointer px-6 transition ease-in-out duration-150 hover:bg-green-700">Go to Dashboard</a>
+             </div>
+            <form asp-controller="Admin" asp-action="Create" method="post">
+                <div class="text-red-500" asp-validation-summary="ModelOnly" ></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 py-2 gap-2">
+                    <div class="">
+                        <label asp-for="Name" >Name</label>
+                        <input asp-for="Name" type="text" class="w-full py-1 px-2 outline-none border-2">
+                        <span asp-validation-for="Name" class="text-red-500"></span>
+                    </div>
+                    <div class="">
+                        <label asp-for="OtherNames">Other_Names</label>
+                        <input asp-for="OtherNames" type="text" class="w-full py-1 px-2 outline-none border-2">
+                        <span asp-validation-for="OtherNames" class="text-red-500"></span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 py-2 gap-2">
+                    <div class="">
+                        <label asp-for="Region">Region</label>
+                        <input asp-for="Region" type="text" class="w-full py-1 px-2 outline-none border-2">
+                        <span asp-validation-for="Region" class="text-red-500"></span>
+                    </div>
+                    <div class="">
+                        <label for="">Image</label>
+                        <input type="file" class="w-full py-1 px-2 outline-none border-2">
+                        <span asp-validation-for="Name" class="text-red-500"></span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 py-2 gap-2 mb-4">
+                    <div class="">
+                        <label asp-for="Intro">Intro</label>
+                         <textarea asp-for="Intro"  class="w-full py-1 px-2 outline-none border-2" id="" cols="30" rows="3"></textarea>
+                         <span asp-validation-for="Intro" class="text-red-500"></span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 py-2 gap-2 mb-4">
+                    <div class="">
+                        <label asp-for="Benefits">Benefits</label>
+                         <textarea asp-for="Benefits"  class="w-full py-1 px-2 outline-none border-2" id="" cols="30" rows="3"></textarea>
+                         <span asp-validation-for="Benefits" class="text-red-500"></span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 py-2 gap-2 mb-4">
+                    <div class="">
+                        <label asp-for="MoreAboutFruit">More_About</label>
+                         <textarea asp-for="MoreAboutFruit" class="w-full py-1 px-2 outline-none border-2" id="" cols="30" rows="5"></textarea>
+                         <span asp-validation-for="MoreAboutFruit" class="text-red-500"></span>
+                    </div>
+                </div>
+                <button type="submit"  class="text-xl text-white bg-green-600 py-2 md:py-3 px-10 transition ease-in-out duration-150 hover:bg-green-700">Create</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+  @section Scripts{
+        @{ <partial name="_ValidationScriptsPartial" /> }
+    }

@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["title"] - muchero</title>
+    <link rel="stylesheet" href="~/css/tailwind.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/muchero.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <!-- navigation -->
+    <div class="nav">
+        <div class="container mx-auto flex py-5 justify-around items-center">
+            <h1 class="text-2xl md:text-4xl font-serif text-white font-bold">Muchero</h1>
+            <div class="hidden md:flex justify-around items-center">
+                <ul class="flex items-center" >
+                    <li  class="font-sans text-lg mr-7 text-white border-2 border-transparent transition ease-in-out duration-150 hover:border-white cursor-pointer py-0 px-2">
+                        <a asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="font-sans text-lg mr-7 text-white border-2 border-transparent transition ease-in-out duration-150 hover:border-white cursor-pointer py-0 px-2">
+                        <a asp-controller="MainFruits" asp-action="listFruits">Fruits</a>
+                    </li>
+                    <li class="font-sans text-lg mr-7 text-white border-2 border-transparent transition ease-in-out duration-150 hover:border-white cursor-pointer py-0 px-2">
+                        <a asp-controller="Home" asp-action="Contact">Contact</a>
+                    </li>
+                    <li class="font-sans text-lg mr-7 text-white border-2 border-transparent transition ease-in-out duration-150 hover:border-white cursor-pointer py-0 px-2">
+                        <a asp-controller="Home" asp-action="About">About</a>
+                    </li>
+                </ul>
+                <a class="font-sans text-lg py-1 px-7  text-white bg-red-400 transition ease-in-out duration-150 hover:bg-red-600 cursor-pointer " asp-action="Dashboard" asp-controller="Admin">Admin</a>
+            </div>
+            <div id="curten" class="block md:hidden">
+                <li class="bg-white h-1 w-10 mb-1 cur"></li>
+                <li class="bg-white h-1 w-10 mb-1 cur"></li>
+                <li class="bg-white h-1 w-10 cur"></li>
+            </div>
+        </div>
+    </div>
+
+    <div id="nav" class="hidden md:hidden bg-green-600">
+        <ul class="flex flex-col items-center py-10" id="nav">
+            <li  class="font-sans text-lg mr-7 text-white border-2 border-transparent transition ease-in-out duration-150 hover:border-white cursor-pointer py-0 px-2">
+                <a asp-controller="Home" asp-action="Index">Home</a>
+            </li>
+            <li class="font-sans text-lg mr-7 text-white border-2 border-transparent transition ease-in-out duration-150 hover:border-white cursor-pointer py-0 px-2">
+                <a asp-controller="MainFruits" asp-action="listFruits">Fruits</a>
+            </li>
+            <li class="font-sans text-lg mr-7 text-white border-2 border-transparent transition ease-in-out duration-150 hover:border-white cursor-pointer py-0 px-2">
+                <a asp-controller="Home" asp-action="Contact">Contact</a>
+            </li>
+            <li class="font-sans text-lg mr-7 text-white border-2 border-transparent transition ease-in-out duration-150 hover:border-white cursor-pointer py-0 px-2">
+                <a asp-controller="Home" asp-action="About">About</a>
+            </li>
+            <a class="font-sans text-lg py-1 px-7  text-white bg-red-400 transition ease-in-out duration-150 hover:bg-red-600 cursor-pointer " asp-action="Dashboard" asp-controller="Admin">Admin</a>
+        </ul>
+        
+    </div>
+
+
+    <div>
+        <main role="main" >
+            @RenderBody()
+        </main>
+    </div>
+
+     <div class="bg-black">
+        <div class="container mx-auto max-w-4xl px-8 py-28">
+            <div class="flex flex-col items-center">
+                <h1 class="text-xl md:text-2xl text-white underline pb-2">Made by Aconte</h1>
+                <p class="font-serif text-white text-lg md:text-xl">&copy; 2022</p>
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

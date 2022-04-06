@@ -1,0 +1,41 @@
+@model IEnumerable<mucheroapp.Models.Fruit>;
+
+@{
+    ViewData["title"] = "Main-Fruits";
+}
+
+
+<div class="bg-gray-200">
+    <div class="container mx-auto max-w-5xl py-28 px-8">
+        <div class="pb-8 ">
+            <!-- search section -->
+            @* <input type="text" placeholder="search fruits.." class="w-full py-3 px-4 mb-3">
+            <button class="bg-green-500 py-1 px-10 text-white">Search</button> *@
+        </div>
+
+        @if (Model.Count() >= 1)
+        {
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                @foreach (var fruit in Model)
+                {
+                    <div class="border-2 mb-10 border-gray-400 shadow-xl transition ease-in-out duration-150 hover:shadow-none">
+                        <img src="/imgs/two.jpg" alt="" class="w-full">
+                        <div class="py-4 px-2">
+                            <h1 class="underline font-sans text-xl font-bold pb-3">@fruit.Name</h1>
+                            <p class="font-sans pb-3">@fruit.Intro</p>
+                            <div class="pb-2">
+                                <a asp-route-Id="@fruit.Id" asp-controller="MainFruits" asp-action="listDetail" class="nav border-none py-2 px-8 text-white transition ease-in-out duration-150 hover:bg-green-700">More info</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <h1 class="text-center font-sans text-3xl text-red-600 font-bold underline pb-3">Oops no fruits</h1>
+        }
+
+
+    </div>
+</div>
